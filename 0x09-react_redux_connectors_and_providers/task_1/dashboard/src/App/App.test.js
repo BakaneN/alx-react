@@ -2,13 +2,15 @@ import { fromJS } from 'immutable';
 import { mapStateToProps } from './App';
 
 describe('Testing mapStateToProps behavior', () => {
-  it('returns isLoggedIn as true when state has isUserLoggedIn set to true', () => {
+  it('returns isLoggedIn and displayDrawer from state', () => {
     const fakeState = fromJS({
-      isUserLoggedIn: true
+      isUserLoggedIn: true,
+      isNotificationDrawerVisible: true
     });
 
     const expectedOutput = {
-      isLoggedIn: true
+      isLoggedIn: true,
+      displayDrawer: true
     };
 
     const mappedProps = mapStateToProps(fakeState);

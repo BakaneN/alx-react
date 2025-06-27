@@ -1,9 +1,10 @@
+import { displayNotificationDrawer, hideNotificationDrawer } from '../actions/uiActionCreators';
 import React from 'react';
 import { connect } from 'react-redux';
 
 class App extends React.Component {
   render() {
-   const { isLoggedIn, displayDrawer } = this.props;
+   const { isLoggedIn, displayDrawer, displayNotificationDrawer, hideNotificationDrawer } = this.props;
 
     return (
       <div className="App">
@@ -25,6 +26,11 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = {
+  displayNotificationDrawer,
+  hideNotificationDrawer
+};
+
 export { mapStateToProps };
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 

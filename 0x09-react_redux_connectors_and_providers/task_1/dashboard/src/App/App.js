@@ -1,5 +1,6 @@
 import { displayNotificationDrawer, hideNotificationDrawer } from '../actions/uiActionCreators';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class App extends React.Component {
@@ -33,4 +34,18 @@ const mapDispatchToProps = {
 
 export { mapStateToProps };
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+App.propTypes = {
+  isLoggedIn: PropTypes.bool,
+  displayDrawer: PropTypes.bool,
+  displayNotificationDrawer: PropTypes.func,
+  hideNotificationDrawer: PropTypes.func,
+};
+
+App.defaultProps = {
+  isLoggedIn: false,
+  displayDrawer: false,
+  displayNotificationDrawer: () => {},
+  hideNotificationDrawer: () => {},
+};
 
